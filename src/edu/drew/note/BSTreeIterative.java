@@ -1,10 +1,9 @@
 package edu.drew.note;
 
-public class BSTreeIterative implements NoteCollection<T> {
+public class BSTreeIterative implements NoteCollection {
 
 	@Override
 	public boolean add(Note newNote) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -55,5 +54,27 @@ public class BSTreeIterative implements NoteCollection<T> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	private class Node<T>
+	   {
+	      private T data;
+	      private Node<T> left, right;
 
+	      public Node(T data, Node<T> l, Node<T> r)
+	      {
+	         left = l; right = r;
+	         this.data = data;
+	      }
+
+	      public Node(T data)
+	      {
+	         this(data, null, null);
+	      }
+
+	      public String toString()
+	      {
+	         return data.toString();
+	      }
+	   } 
+	
 }
+
