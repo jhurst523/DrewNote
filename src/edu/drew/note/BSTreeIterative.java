@@ -21,7 +21,7 @@ public class BSTreeIterative implements NoteCollection {
 				}
 				else {
 				found = true;
-				currentNode.Node(newNote);// dont know what to write here
+				currentNode.Node(newNote);
 				}
 			}
 			else if (comparison = false) {
@@ -30,7 +30,7 @@ public class BSTreeIterative implements NoteCollection {
 					}
 					else {
 						found = true;
-						// dont know what to put here
+						currentNode.Node(newNote);
 					}
 				}
 			}
