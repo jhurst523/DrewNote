@@ -1,7 +1,9 @@
 package edu.drew.note;
 
-public class BSTreeIterative implements NoteCollection {
-	@Override
+public abstract class BSTreeIterative implements NoteCollection {
+	
+	private int numEntries = 0;
+	
 	public boolean add(Note newNote) {
 		Node root = null;
 		Node currentNode = root;
@@ -9,15 +11,22 @@ public class BSTreeIterative implements NoteCollection {
 		boolean found = false;
 		while (!found) {
 		Node currentEntry = currentNode;
+		if (newNote == null){
+			return false;
+		}
+		else {
 		boolean comparison = newNote.equals(currentEntry);
+			
 			if (comparison == false) {
 			found = true;
 			result = currentEntry;
 			currentNode.equals(newNote);
+			numEntries++;
+			System.out.print(numEntries);
 			}
 			else if (comparison != false) {
 				if (currentNode.left != null) {
-				currentNode = currentNode.left; 
+				currentNode = currentNode.left;
 				}
 				else {
 				found = true;
@@ -27,6 +36,7 @@ public class BSTreeIterative implements NoteCollection {
 			else if (comparison = false) {
 					if (currentNode == currentEntry) {
 						currentNode = currentNode.right;
+						
 					}
 					else {
 						found = true;
@@ -35,7 +45,9 @@ public class BSTreeIterative implements NoteCollection {
 				}
 			}
 			return false;
-			}
+	}
+		return found;}
+	
 			
 
 	@Override
@@ -56,12 +68,12 @@ public class BSTreeIterative implements NoteCollection {
 		else {
 			currentNode = root;
 			for (int i = 0; i < ID; i++) {
-                currentNode = currentNode.right;
-            }
+            currentNode = currentNode.right;
 			currentNode.right = currentNode.right.right;
 		}
 		return false;
 	}
+		return false;}
 
 	@Override
 	public boolean remove(Note note) {
@@ -86,10 +98,8 @@ public class BSTreeIterative implements NoteCollection {
 		return false;
 	}
 
-	@Override
 	public int getSize() {
-		Node root;// TODO Auto-generated method stub
-		return 0;
+		return numEntries;
 	}
 
 	@Override
